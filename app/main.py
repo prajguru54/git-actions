@@ -1,5 +1,12 @@
+from fastapi import FastAPI
+
+app = FastAPI()
+
+
 def sum(a: int, b: int) -> int:
     return a + b
 
 
-print("Hello Github Actions v0.5")
+@app.get("/")
+async def root():
+    return {"message": "Hello Github Actions v0.5"}
